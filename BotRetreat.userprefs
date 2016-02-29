@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Custom/Scripts/GUIController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Custom/Scripts/RangeAttackController.cs">
     <Files>
+      <File FileName="Assets/Custom/Scripts/ExploderController.cs" Line="1" Column="1" />
       <File FileName="Assets/Custom/Scripts/GUIController.cs" Line="1" Column="1" />
       <File FileName="Assets/Custom/Scripts/Domain/Bot.cs" Line="1" Column="1" />
-      <File FileName="Assets/Custom/Scripts/Networking/Networking.cs" Line="1" Column="1" />
+      <File FileName="Assets/Custom/Scripts/Networking/Networking.cs" Line="62" Column="11" />
       <File FileName="Assets/fightBOT (free)/script/robo_animationCheck_free.js" Line="1" Column="1" />
       <File FileName="Assets/Custom/Scripts/BotController.cs" Line="1" Column="1" />
       <File FileName="Assets/Custom/Scripts/GridController.cs" Line="1" Column="1" />
@@ -17,6 +18,7 @@
       <File FileName="Assets/Custom/Scripts/HealthTagController.cs" Line="1" Column="1" />
       <File FileName="Assets/Custom/Scripts/IBotDependant.cs" Line="1" Column="1" />
       <File FileName="Assets/Custom/Scripts/NameTagController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Custom/Scripts/RangeAttackController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

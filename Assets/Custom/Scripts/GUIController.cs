@@ -16,6 +16,12 @@ namespace com.terranovita.botretreat
         // Update is called once per frame
         void Start()
         {
+            #if !UNITY_EDITOR && UNITY_WEBGL
+            foreach( Image img in this.gameObject.GetComponentsInChildren<Image>()) {
+                img.enabled = false;
+            }
+            #endif
+            
             //Adds a listener to the main slider and invokes a method when the value changes.
             creatureDropdown.onValueChanged.AddListener (delegate {creatureSelected ();});
             arenaDropdown.onValueChanged.AddListener (delegate {arenaSelected ();});
@@ -44,6 +50,34 @@ namespace com.terranovita.botretreat
             List<string> creatures = GridController.Instance.getCreatureNames();
             creatures.Insert(0,"All");
             creatureDropdown.AddOptions(creatures);
+        }
+
+        public void selectArena(string name) {
+            int count = 0;
+            int toSelect = 0;
+            foreach( Dropdown.OptionData data in arenaDropdown.options) {
+                if(data.text == name) {
+                    toSelect = count;
+                    break;
+                }
+                count++;
+            }
+            arenaDropdown.value = toSelect;
+            arenaSelected();
+        }
+
+        public void selectCreature(string name) {
+            int count = 0;
+            int toSelect = 0;
+            foreach( Dropdown.OptionData data in creatureDropdown.options) {
+                if(data.text == name) {
+                    toSelect = count;
+                    break;
+                }
+                count++;
+            }
+            creatureDropdown.value = toSelect;
+            creatureSelected();
         }
 
         private void refreshArenasSuccessCallback(JSONObject json)

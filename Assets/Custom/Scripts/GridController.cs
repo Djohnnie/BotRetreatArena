@@ -46,6 +46,8 @@ namespace com.terranovita.botretreat
 
         public GameObject gridPrefab;
         public GameObject grid;
+        public GameObject borderGridPrefab;
+        public GameObject borderGrid;
         public float gridToWorldScale = 1;
         public float platformHeight = 1;
         public float refreshRate = 1;
@@ -66,8 +68,10 @@ namespace com.terranovita.botretreat
                 if (grid == null)
                 {
                     grid = Instantiate(gridPrefab);
+                    borderGrid = Instantiate(borderGridPrefab);
                 }
                 grid.transform.localScale = new Vector3((float)arena.Width, platformHeight, (float)arena.Height);
+                borderGridPrefab.transform.localScale = new Vector3((float)arena.Width+4, platformHeight-0.1f, (float)arena.Height+4);
                 grid.GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", new Vector2((float)arena.Width, (float)arena.Height));
                 if (_bots != null)
                 {

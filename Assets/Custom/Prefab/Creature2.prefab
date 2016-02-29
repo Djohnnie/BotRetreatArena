@@ -490,17 +490,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 457496}
+  rangeAttackPrefab: {fileID: 157740, guid: 3f2b877e382474927842b03ae7190254, type: 2}
   speed: 2
   rotationSpeed: 2
   IDLE: Idle
-  WALK_SLOW: Walk
   WALK: Walk
-  RUN: loop_run_funny
-  COMBO_ATTACK: Attack2
-  JUMP_KICK: kick_jump_right
-  KICK: kick_lo_right
-  PUNCH_LEFT: Attack1
-  PUNCH_RIGHT: Attack1
+  MELEE_ATTACK: Attack1
+  RANGED_ATTACK: Attack2
+  SELF_DESTRUCT: Death
   DEFEND: def_head
   DEATH: Death
   JUMP: jump
