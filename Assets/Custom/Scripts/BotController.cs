@@ -36,6 +36,7 @@ namespace com.terranovita.botretreat
         public Transform head;
         public GameObject rangeAttackPrefab;
         private GameObject rangeAttack = null;
+        private bool _rangeAttackFired = false;
 
         public float speed = 2;
         public float rotationSpeed = 20;
@@ -142,7 +143,9 @@ namespace com.terranovita.botretreat
                                 GoAnim(MELEE_ATTACK);
                                 break;
                             case LastAction.RangedAttack:
-                                if(rangeAttack == null) {
+                                if(rangeAttack == null && !_rangeAttackFired)
+                                {
+                                    _rangeAttackFired = true;
                                     rangeAttack = Instantiate(rangeAttackPrefab);
                                     //rangeAttack.transform.SetParent(this.transform);
                                     RangeAttackController rangeAttackController = rangeAttack.GetComponent<RangeAttackController>();
@@ -209,6 +212,7 @@ namespace com.terranovita.botretreat
             NameTagController.UpdateBot(bot);
             HealthController.UpdateBot(bot);
             StaminaController.UpdateBot(bot);
+            _rangeAttackFired = false;
         }
 
         public void Destroy()

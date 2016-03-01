@@ -10843,17 +10843,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 450936}
+  rangeAttackPrefab: {fileID: 157740, guid: 3f2b877e382474927842b03ae7190254, type: 2}
   speed: 2
   rotationSpeed: 2
   IDLE: loop_idle
-  WALK_SLOW: loop_walk_funny
   WALK: loop_run_funny
-  RUN: loop_run_funny
-  COMBO_ATTACK: cmb_street_fight
-  JUMP_KICK: kick_jump_right
-  KICK: kick_lo_right
-  PUNCH_LEFT: punch_hi_left
-  PUNCH_RIGHT: punch_hi_right
+  MELEE_ATTACK: cmb_street_fight
+  RANGED_ATTACK: punch_hi_right
+  SELF_DESTRUCT: final_head
   DEFEND: def_head
   DEATH: final_head
   JUMP: jump
@@ -11461,6 +11458,10 @@ Prefab:
       propertyPath: scale
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rangeAttackPrefab
+      value: 
+      objectReference: {fileID: 157740, guid: 3f2b877e382474927842b03ae7190254, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131020}
