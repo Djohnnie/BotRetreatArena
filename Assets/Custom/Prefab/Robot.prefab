@@ -10844,6 +10844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 450936}
   rangeAttackPrefab: {fileID: 157740, guid: 3f2b877e382474927842b03ae7190254, type: 2}
+  exclamationMarkPrefab: {fileID: 140918, guid: 1bf5188e1b7f3154093cbce488959e48,
+    type: 2}
   speed: 2
   rotationSpeed: 2
   IDLE: loop_idle
@@ -11462,6 +11464,10 @@ Prefab:
       propertyPath: rangeAttackPrefab
       value: 
       objectReference: {fileID: 157740, guid: 3f2b877e382474927842b03ae7190254, type: 2}
+    - target: {fileID: 0}
+      propertyPath: exclamationMarkPrefab
+      value: 
+      objectReference: {fileID: 140918, guid: 1bf5188e1b7f3154093cbce488959e48, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131020}

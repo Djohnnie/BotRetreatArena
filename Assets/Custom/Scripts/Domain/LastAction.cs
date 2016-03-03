@@ -18,6 +18,10 @@
 
         Teleport,
 
-        SelfDestruct
+        SelfDestruct,
+
+        Died,
+
+        ScriptError
     }
 }

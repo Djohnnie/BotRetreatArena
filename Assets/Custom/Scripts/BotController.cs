@@ -35,8 +35,11 @@ namespace com.terranovita.botretreat
         private Bot _bot;
         public Transform head;
         public GameObject rangeAttackPrefab;
+        public GameObject exclamationMarkPrefab;
         private GameObject rangeAttack = null;
+        private GameObject exclamationMark = null;
         private bool _rangeAttackFired = false;
+        private bool _exclamationMarkVisible = false;
 
         public float speed = 2;
         public float rotationSpeed = 20;
@@ -109,13 +112,18 @@ namespace com.terranovita.botretreat
         {
             if (_bot != null)
             {
+                if (_bot.LastAction != LastAction.ScriptError)
+                {
+                    _exclamationMarkVisible = false;
+                    if (exclamationMark != null) { Destroy(exclamationMark); }
+                }
+
                 if (_bot.PhysicalHealth.Current <= 0 && _bot.LastAction != LastAction.SelfDestruct)
                 {
                     GoAnimOnce(DEATH);
                 }
-                else {
-                    
-
+                else
+                {
                     Vector3 targetDir = OrientationVector.createFrom(_bot.Orientation);
                     float rotationStep = rotationSpeed * Time.deltaTime;
                     Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, rotationStep, 0.0F);
@@ -143,7 +151,7 @@ namespace com.terranovita.botretreat
                                 GoAnim(MELEE_ATTACK);
                                 break;
                             case LastAction.RangedAttack:
-                                if(rangeAttack == null && !_rangeAttackFired)
+                                if (rangeAttack == null && !_rangeAttackFired)
                                 {
                                     _rangeAttackFired = true;
                                     rangeAttack = Instantiate(rangeAttackPrefab);
@@ -158,6 +166,16 @@ namespace com.terranovita.botretreat
                             case LastAction.SelfDestruct:
                                 GetComponent<ExploderController>().Do(x => x.Explode());
                                 GoAnimOnce(DEATH);
+                                break;
+                            case LastAction.ScriptError:
+                                if (!_exclamationMarkVisible)
+                                {
+                                    exclamationMark = Instantiate(exclamationMarkPrefab);
+                                    exclamationMark.transform.SetParent(head);
+                                    exclamationMark.transform.localPosition = new Vector3(0, 0, 0);
+                                    exclamationMark.transform.position = new Vector3(exclamationMark.transform.position.x, 2.5f, exclamationMark.transform.position.z);
+                                    _exclamationMarkVisible = true;
+                                }
                                 break;
                             default:
                                 GoAnim(IDLE);
