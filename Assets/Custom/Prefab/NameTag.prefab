@@ -70,7 +70,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 100
+  m_FontSize: 150
   m_FontStyle: 0
   m_RichText: 0
   m_Font: {fileID: 12800000, guid: 697d4a0dd3efb914cb7447df6d3353d6, type: 3}
@@ -97,7 +97,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_FontSize
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_CastShadows
