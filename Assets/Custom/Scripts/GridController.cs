@@ -141,7 +141,7 @@ namespace com.terranovita.botretreat
 
         private void errorCallback(JSONObject json)
         {
-            Debug.Log(json.str);
+            Debug.Log(json);
         }
 
 
