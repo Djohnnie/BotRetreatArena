@@ -71,8 +71,9 @@ namespace com.terranovita.botretreat
                     borderGrid = Instantiate(borderGridPrefab);
                 }
                 grid.transform.localScale = new Vector3((float)arena.Width, platformHeight, (float)arena.Height);
-                borderGridPrefab.transform.localScale = new Vector3((float)arena.Width+4, platformHeight-0.1f, (float)arena.Height+4);
                 grid.GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", new Vector2((float)arena.Width, (float)arena.Height));
+                borderGrid.transform.localScale = new Vector3((float)arena.Width + 4, platformHeight - 0.1f, (float)arena.Height + 4);
+                borderGrid.GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", new Vector2((float)arena.Width + 4, (float)arena.Height + 4));
                 if (_bots != null)
                 {
                     foreach (var botId in _bots.Keys)
@@ -132,7 +133,7 @@ namespace com.terranovita.botretreat
             lastUpdate = arena.lastRefreshDateTime;
             var bots = json.GetValues<Bot>("bots");
             refreshBots(bots);
-            if (oldArena == null || (oldArena.Width != arena.Width && oldArena.Height != arena.Height) || updateDelta > 3)
+            if (oldArena == null || (oldArena.Width != arena.Width || oldArena.Height != arena.Height) || updateDelta > 3)
             {
                 initialize();
             }
